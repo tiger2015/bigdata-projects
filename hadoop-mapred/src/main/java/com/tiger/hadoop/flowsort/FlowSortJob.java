@@ -1,4 +1,4 @@
-package com.tiger.hadoop.flowcount;
+package com.tiger.hadoop.flowsort;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -20,33 +20,33 @@ import org.apache.hadoop.util.ToolRunner;
  * @Description
  * @Version: 1.0
  **/
-public class FlowCountJob extends Configured implements Tool {
+public class FlowSortJob extends Configured implements Tool {
     @Override
     public int run(String[] args) throws Exception {
 
         Job job = Job.getInstance(getConf());
-        job.setJobName("flowcount");
-        job.setJarByClass(FlowCountJob.class);
+        job.setJobName("flowsort");
+        job.setJarByClass(FlowSortJob.class);
 
         job.setInputFormatClass(TextInputFormat.class);
 
-        job.setMapperClass(FlowCountMapper.class);
-        job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(FlowBean.class);
+        job.setMapperClass(FlowSortMapper.class);
+        job.setMapOutputKeyClass(FlowBean.class);
+        job.setMapOutputValueClass(Text.class);
 
 
-        job.setReducerClass(FlowCountReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(FlowBean.class);
+        job.setReducerClass(FlowSortReducer.class);
+        job.setOutputKeyClass(FlowBean.class);
+        job.setOutputValueClass(Text.class);
 
         job.setOutputFormatClass(TextOutputFormat.class);
 
         LocalFileSystem fileSystem = FileSystem.getLocal(getConf());
-        if (fileSystem.exists(new Path("file:///G:\\data\\flowcount\\out"))) {
-            fileSystem.delete(new Path("file:///G:\\data\\flowcount\\out"), true);
+        if (fileSystem.exists(new Path("file:///G:\\data\\flowsort\\out"))) {
+            fileSystem.delete(new Path("file:///G:\\data\\flowsort\\out"), true);
         }
-        FileInputFormat.setInputPaths(job, new Path("file:///G:\\data\\flowcount\\input"));
-        FileOutputFormat.setOutputPath(job, new Path("file:///G:\\data\\flowcount\\out"));
+        FileInputFormat.setInputPaths(job, new Path("file:///G:\\data\\flowcount\\out"));
+        FileOutputFormat.setOutputPath(job, new Path("file:///G:\\data\\flowsort\\out"));
 
         boolean completion = job.waitForCompletion(true);
         return 0;
@@ -54,7 +54,7 @@ public class FlowCountJob extends Configured implements Tool {
 
     public static void main(String[] args) throws Exception {
         Configuration configuration = new Configuration();
-        int run = ToolRunner.run(configuration, new FlowCountJob(), args);
+        int run = ToolRunner.run(configuration, new FlowSortJob(), args);
         System.exit(run);
     }
 }

@@ -1,5 +1,6 @@
 package com.tiger.hadoop.flowcount;
 
+
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -25,6 +26,7 @@ public class FlowCountReducer extends Reducer<Text, FlowBean, Text, FlowBean> {
             upFlow += value.getUpFlow();
             downFlow += value.getDownFlow();
         }
+
         FlowBean flowBean = new FlowBean();
         flowBean.setUpPakcges(upPackages);
         flowBean.setDownPackages(downPackages);
