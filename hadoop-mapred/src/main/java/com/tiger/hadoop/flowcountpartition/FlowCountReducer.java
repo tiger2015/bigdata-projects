@@ -1,4 +1,4 @@
-package com.tiger.hadoop.flowcount;
+package com.tiger.hadoop.flowcountpartition;
 
 
 import org.apache.hadoop.io.Text;
@@ -26,6 +26,7 @@ public class FlowCountReducer extends Reducer<Text, FlowBean, Text, FlowBean> {
             upFlow += value.getUpFlow();
             downFlow += value.getDownFlow();
         }
+
         FlowBean flowBean = new FlowBean();
         flowBean.setUpPakcges(upPackages);
         flowBean.setDownPackages(downPackages);
