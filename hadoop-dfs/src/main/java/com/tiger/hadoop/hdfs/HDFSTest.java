@@ -33,9 +33,9 @@ public class HDFSTest {
          }
          **/
 
-       HDFSUtil.download("/data/flow/out", "C:\\Users\\ZengHu\\\\Desktop\\");
+       HDFSUtil.download("/data/commonFriend/out2", "C:\\Users\\ZengHu\\\\Desktop\\");
 
-       //HDFSUtil.upload("C:\\Users\\ZengHu\\Desktop\\wordcount.txt", "/data/wordcount/input/wordcount.txt");
+       //HDFSUtil.upload("C:\\Users\\ZengHu\\Desktop\\friends.txt", "/data/commonFriend/input/friends.txt");
 
 
 
