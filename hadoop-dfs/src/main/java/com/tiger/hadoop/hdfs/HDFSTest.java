@@ -33,9 +33,10 @@ public class HDFSTest {
          }
          **/
 
-       HDFSUtil.download("/data/commonFriend/out2", "C:\\Users\\ZengHu\\\\Desktop\\");
+       HDFSUtil.download("/data/scores/out2", "C:\\Users\\ZengHu\\\\Desktop\\");
+       // HDFSUtil.delete("/data/scores/input/scores.txt", false);
 
-       //HDFSUtil.upload("C:\\Users\\ZengHu\\Desktop\\friends.txt", "/data/commonFriend/input/friends.txt");
+      // HDFSUtil.upload("C:\\Users\\ZengHu\\Desktop\\scores.txt", "/data/scores/input/scores.txt");
 
 
 
