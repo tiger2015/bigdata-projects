@@ -28,6 +28,5 @@ public class GradeTopNReducer extends Reducer<Grade, Text, Text, NullWritable> {
             context.write(value, NullWritable.get());
             i++;
         }
-        System.out.println("i="+i);
     }
 }

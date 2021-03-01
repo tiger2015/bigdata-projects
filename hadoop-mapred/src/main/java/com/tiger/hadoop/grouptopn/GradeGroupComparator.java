@@ -2,6 +2,8 @@ package com.tiger.hadoop.grouptopn;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
 /**
@@ -20,8 +22,15 @@ public class GradeGroupComparator extends WritableComparator {
         super(Grade.class, true);
     }
 
+
+    /**
+     * 注意是重写compare(WritableComparable a, WritableComparable b)接口
+     * @param a
+     * @param b
+     * @return
+     */
     @Override
-    public int compare(Object a, Object b) {
+    public int compare(WritableComparable a, WritableComparable b) {
         Grade first = (Grade) a;
         Grade second = (Grade) b;
         return first.getCourse().compareTo(second.getCourse());

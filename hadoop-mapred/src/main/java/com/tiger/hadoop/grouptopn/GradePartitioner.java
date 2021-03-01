@@ -1,6 +1,5 @@
 package com.tiger.hadoop.grouptopn;
 
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
 
