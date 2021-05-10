@@ -11,7 +11,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  * @Version: 1.0
  *
  * */
-object SparkSQL01 {
+object SparkSQL_UDF01 {
 
   def main(args: Array[String]): Unit = {
 
@@ -29,26 +29,19 @@ object SparkSQL01 {
     // TODO 创建视图
     df.createOrReplaceTempView("user")
 
-    // SQL
-    val result: DataFrame = spark.sql("select avg(age) as avg_age from user")
-    result.show()
 
-    // DSL
-    val res2 = df.agg("age" -> "max", "age" -> "avg")
-    res2.show()
+    // 注册自定函数
+    spark.udf.register("prefix", (name: String) => name + "_Name")
+    spark.udf.register("add_age", (age: Int) => age + 1)
 
+    val res = spark.sql("select prefix(name), add_age(age) from user")
 
-
-
-
+    res.show()
 
 
 
     // TODO 关闭SparkSession
     spark.close()
-
-
-
 
 
   }

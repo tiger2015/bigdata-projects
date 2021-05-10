@@ -122,6 +122,7 @@ fabric.properties
 /.idea/sbt.xml
 /.idea/vcs.xml
 /.idea/
-/data/
-/output/
-!/temp/
+/data/*
+/output/*
+/temp/*
+

@@ -11,10 +11,9 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  * @Version: 1.0
  *
  * */
-object SparkSQL01 {
+object SparkSQL03 {
 
   def main(args: Array[String]): Unit = {
-
 
     val config = new SparkConf()
     config.setMaster("local[*]")
@@ -29,26 +28,13 @@ object SparkSQL01 {
     // TODO 创建视图
     df.createOrReplaceTempView("user")
 
-    // SQL
-    val result: DataFrame = spark.sql("select avg(age) as avg_age from user")
-    result.show()
-
-    // DSL
-    val res2 = df.agg("age" -> "max", "age" -> "avg")
-    res2.show()
-
-
-
-
-
-
+    import spark.implicits._
+    val res = df.select($"age" + 1)
+    res.show()
 
 
     // TODO 关闭SparkSession
     spark.close()
-
-
-
 
 
   }
