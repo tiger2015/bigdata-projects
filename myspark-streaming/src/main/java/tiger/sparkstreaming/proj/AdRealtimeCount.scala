@@ -27,7 +27,8 @@ object AdRealtimeCount {
 
     val conf = new SparkConf()
     conf.setAppName("SparkStreaming")
-    conf.setMaster("local[*]")
+    //conf.setMaster("spark://node01:7077")
+    //conf.setMaster("local[*]")
 
     val streamingContext = new StreamingContext(conf, Seconds(5))
 

@@ -14,6 +14,8 @@ import tiger.sparkstreaming.proj.util.DBConnectionUtil
  *
  * */
 class AreaCityAdCountDao extends TAreaCityAdCountDao {
+
+
   override def insert(areaCityAdCount: AreaCityAdCount): Boolean = {
     val connection = DBConnectionUtil.getConnection()
     val statement = connection.prepareStatement(
@@ -33,8 +35,7 @@ class AreaCityAdCountDao extends TAreaCityAdCountDao {
     val flag = statement.execute()
 
     statement.close()
-    connection.close()
-
+    DBConnectionUtil.closeConnection(connection)
     flag
   }
 

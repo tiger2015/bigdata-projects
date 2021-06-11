@@ -45,4 +45,8 @@ object DBConnectionUtil {
     druidDataSource.getConnection
   }
 
+  def closeConnection(connection:Connection): Unit ={
+    connection.close()
+  }
+
 }

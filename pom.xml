@@ -15,6 +15,7 @@
         <module>myspark-core</module>
         <module>myspark-sql</module>
         <module>myspark-streaming</module>
+        <module>myflink</module>
     </modules>
 
     <name>bigdata-projects</name>
@@ -29,6 +30,8 @@
         <spark.version>3.0.0</spark.version>
         <mysql.version>5.1.47</mysql.version>
         <hive.version>1.2.1</hive.version>
+        <flink.version>1.10.2</flink.version>
+        <avro.version>1.8.2</avro.version>
     </properties>
 
     <dependencies>
@@ -137,6 +140,27 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <!-- flink  -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java_2.12</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients_2.12</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>${avro.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
